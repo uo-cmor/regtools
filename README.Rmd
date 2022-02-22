@@ -1,0 +1,45 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# regtools
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of regtools is to provide simple tools for the analysis of regression models.
+
+## Installation
+
+You can install the released version of regtools from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("uo-cmor/regtools")
+```
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(regtools)
+
+df <- data.frame(a = 1:12, b = rep(c("b1", "b2", "b3"), c(4, 5, 3)), c = rep(0:1, c(5, 7)))
+model <- lm(a ~ b + c, df)
+
+lincom(model, c(1, 0.5, 0.3, 0.2))
+
+lincom(model, rbind(c(1, 0.5, 0.3, 0.2),
+                        c(0.2, 0.3, 0.5, 0.2)))
+```
